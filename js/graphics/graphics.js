@@ -11,8 +11,9 @@ window.drawRiver = function(ctx) {
         ctx.moveTo(320, y);
         ctx.quadraticCurveTo(400, y + 20, 480, y);
         ctx.stroke();
+        ctx.globalAlpha = 1;
     }
-    ctx.globalAlpha = 1;
+    
   
 window.drawArena = function(ctx) {
     ctx.fillStyle = '#228b22';
