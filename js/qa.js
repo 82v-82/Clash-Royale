@@ -5,6 +5,7 @@ function helloQA() {
     console.log("Integration & QA ready ✅");
 }
 
+
 function gameLoop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
