@@ -65,3 +65,24 @@ window.GameState = {
         }
     }
 };
+// Определение маршрута для юнита в зависимости от позиции спавна
+getUnitPath: function(unit) {
+    // Определяем, на какой дорожке появился юнит
+    const lane = unit.x < CONFIG.GAME.width / 2 ? 'left' : 'right';
+    
+    if (unit.isPlayer) {
+        // Игроки идут вверх по своей дорожке
+        return {
+            targetX: lane === 'left' ? CONFIG.GAME.towers.enemyLeft.x : CONFIG.GAME.towers.enemyRight.x,
+            targetY: CONFIG.GAME.towers.enemyLeft.y,
+            lane: lane
+        };
+    } else {
+        // Враги идут вниз по своей дорожке
+        return {
+            targetX: lane === 'left' ? CONFIG.GAME.towers.playerLeft.x : CONFIG.GAME.towers.playerRight.x,
+            targetY: CONFIG.GAME.towers.playerLeft.y,
+            lane: lane
+        };
+    }
+}
